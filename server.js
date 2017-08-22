@@ -5,12 +5,10 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var article-one = {
-    title: 'Article_one',
-    date: 'sept 3 2015',
+var articleone = { title: 'Article_one',  date: 'sept 3 2015',
     content: 'This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.'
   
-}
+};
 function replaceTemplate(args){
     var title = args.title;
     var date = args.date;
@@ -50,7 +48,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/article-one', function (req, res) {
-  res.send(replaceTemplate());
+  res.send(replaceTemplate(articleone));
 });
 
 app.get('/article-two', function (req, res) {
