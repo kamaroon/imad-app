@@ -5,8 +5,16 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleone = { title: 'Article_one',  date: 'sept 3 2015',
-    content: 'This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.'
+var articles = {
+    "article-one":{ "title": 'Article_one',  "date": 'sept 3 2015',
+    "content": 'This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.'
+    },
+    "article-two":{ "title": 'Article_two',  "date": 'sept 10 2015',
+    "content": 'This is the content for my second article.'
+    },
+    "article-three":{ "title": 'Article_three',  "date": 'sept 13 2015',
+    "content": 'This is the content for my third article.'
+    }
   
 };
 function replaceTemplate(args){
@@ -47,16 +55,16 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/article-one', function (req, res) {
-  res.send(replaceTemplate(articleone));
+app.get('/:articleName', function (req, res) {
+  res.send(replaceTemplate(req.params.articleName));
 });
 
 app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+  res.ssend(articleone[replaceTemplate(articleone)]);
 });
 
 app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+  res.send(replaceTemplate(articleone));
 });
 
 
