@@ -18,8 +18,6 @@ var articles = {
   
 };
 function replaceTemplate(args){
-    console.log("test");
-    console.log(args);
     var title = args.title;
     var date = args.date;
     var content = args.content;
